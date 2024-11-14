@@ -63,8 +63,8 @@ gvimconf.keymap.general = {
     cmd_backward            = { "c", "<C-b>", "<Left>", { silent = false } },
     cmd_home                = { "c", "<C-a>", "<Home>", { silent = false } },
     cmd_end                 = { "c", "<C-e>", "<End>", { silent = false } },
-    cmd_word_forward        = { "c", "<A-f>", "<S-Right>", { silent = false } },
-    cmd_word_backward       = { "c", "<A-b>", "<S-Left>", { silent = false } },
+    -- cmd_word_forward        = { "c", "<A-f>", "<S-Right>", { silent = false } },
+    -- cmd_word_backward       = { "c", "<A-b>", "<S-Left>", { silent = false } },
     join_lines = {
         { "n", "v" }, "J",
         function()
@@ -91,35 +91,19 @@ gvimconf.keymap.general = {
     navigate_left   = { "n", "<C-h>", "<C-w>h", { noremap = true, silent=true } },
     navigate_right  = { "n", "<C-l>", "<C-w>l", { noremap = true, silent=true } },
 
-    new_line_below_normal = {
-        "n",
-        "<A-o>",
-        "o<Esc>",
-    },
-    new_line_above_normal = {
-        "n",
-        "<A-O>",
-        "O<Esc>",
-    },
-    new_line_below_insert = {
-        "i",
-        "<A-o>",
-        "<Esc>o",
-    },
-    new_line_above_insert = {
-        "i",
-        "<A-O>",
-        "<Esc>O",
-    },
+    -- new_line_below_normal = { "n", "<A-o>", "o<Esc>", },
+    -- new_line_above_normal = { "n", "<A-O>", "O<Esc>", },
+    -- new_line_below_insert = { "i", "<A-o>", "<Esc>o", },
+    -- new_line_above_insert = { "i", "<A-O>", "<Esc>O", },
 
-    open_html_file      = { "n", "<A-b>", open_html_file },
-    open_terminal       = { "n", "<C-t>", terminal_command },
-    normal_mode_in_terminal = { "t", "<Esc>", "<C-\\><C-n>" },
-    save_file           = { { "n", "i", "v" }, "<C-s>", "<Esc>:w<CR>" },
-    shift_line_left     = { "v", "<", "<gv" },
-    shift_line_right    = { "v", ">", ">gv" },
-    undo                = { { "n", "i", "v", "t", "c" }, "<C-z>", undo },
-    visual_line         = { "n", "V", "0v$" },
+    -- open_html_file      = { "n", "<A-b>", open_html_file },
+    -- open_terminal       = { "n", "<C-t>", terminal_command },
+    -- normal_mode_in_terminal = { "t", "<Esc>", "<C-\\><C-n>" },
+    -- save_file           = { { "n", "i", "v" }, "<C-s>", "<Esc>:w<CR>" },
+    -- shift_line_left     = { "v", "<", "<gv" },
+    -- shift_line_right    = { "v", ">", ">gv" },
+    -- undo                = { { "n", "i", "v", "t", "c" }, "<C-z>", undo },
+    -- visual_line         = { "n", "V", "0v$" },
 }
 
 
