@@ -404,37 +404,37 @@ config.neogit = {
     end,
 }
 
-config.neoscroll = {
-    "karb94/neoscroll.nvim",
-    main = "neoscroll",
-    opts = {
-        mappings = {},
-        hide_cursor = true,
-        stop_eof = true,
-        respect_scrolloff = false,
-        cursor_scrolls_alone = true,
-        easing_function = "sine",
-        pre_hook = nil,
-        post_hook = nil,
-        performance_mode = false,
-    },
-    keys = {
-        {
-            "<C-u>",
-            function()
-                require("neoscroll").scroll(-vim.wo.scroll, true, 250)
-            end,
-            desc = "scroll up",
-        },
-        {
-            "<C-d>",
-            function()
-                require("neoscroll").scroll(vim.wo.scroll, true, 250)
-            end,
-            desc = "scroll down",
-        },
-    },
-}
+-- config.neoscroll = {
+--     "karb94/neoscroll.nvim",
+--     main = "neoscroll",
+--     opts = {
+--         mappings = {},
+--         hide_cursor = true,
+--         stop_eof = true,
+--         respect_scrolloff = false,
+--         cursor_scrolls_alone = true,
+--         easing_function = "sine",
+--         pre_hook = nil,
+--         post_hook = nil,
+--         performance_mode = false,
+--     },
+--     keys = {
+--         {
+--             "<C-u>",
+--             function()
+--                 require("neoscroll").scroll(-vim.wo.scroll, true, 250)
+--             end,
+--             desc = "scroll up",
+--         },
+--         {
+--             "<C-d>",
+--             function()
+--                 require("neoscroll").scroll(vim.wo.scroll, true, 250)
+--             end,
+--             desc = "scroll down",
+--         },
+--     },
+-- }
 
 config.nui = {
     "MunifTanjim/nui.nvim",
@@ -463,18 +463,18 @@ config["nvim-notify"] = {
     end,
 }
 
-config["nvim-scrollview"] = {
-    "dstein64/nvim-scrollview",
-    event = "User Loading",
-    main = "scrollview",
-    opts = {
-        excluded_filetypes = { "nvimtree" },
-        current_only = true,
-        winblend = 75,
-        base = "right",
-        column = 1,
-    },
-}
+-- config["nvim-scrollview"] = {
+--     "dstein64/nvim-scrollview",
+--     event = "User Loading",
+--     main = "scrollview",
+--     opts = {
+--         excluded_filetypes = { "nvimtree" },
+--         current_only = true,
+--         winblend = 75,
+--         base = "right",
+--         column = 1,
+--     },
+-- }
 
 config["nvim-transparent"] = {
     "xiyaowong/nvim-transparent",
@@ -900,6 +900,14 @@ config["zen-mode"] = {
     keys = {
         { "<leader>uz", "<Cmd>ZenMode<CR>", desc = "toggle zen mode", silent = true, noremap = true },
     },
+}
+
+-- tmux
+config["nvim-tmux-navigation"] = {
+    "alexghergh/nvim-tmux-navigation",
+    config = function()
+        require("plugin.config.nvim_tmux_navigation").setup()
+    end,
 }
 
 -- Colorschemes
