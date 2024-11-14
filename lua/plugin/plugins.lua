@@ -181,41 +181,7 @@ config.lualine = {
     },
     event = "User Loading",
     main = "lualine",
-    opts = {
-        options = {
-            theme = "auto",
-            component_separators = { left = "", right = "" },
-            section_separators = { left = "", right = "" },
-            disabled_filetypes = { "undotree", "diff" },
-        },
-        extensions = { "nvim-tree" },
-        sections = {
-            lualine_b = { "branch", "diff" },
-            lualine_c = {
-                "filename",
-                {
-                    "lsp_progress",
-                    spinner_symbols = {
-                        symbols.Dice1,
-                        symbols.Dice2,
-                        symbols.Dice3,
-                        symbols.Dice4,
-                        symbols.Dice5,
-                        symbols.Dice6,
-                    },
-                },
-            },
-            lualine_x = {
-                "filesize",
-                {
-                    "fileformat",
-                    symbols = { unix = symbols.Unix, dos = symbols.Dos, mac = symbols.Mac },
-                },
-                "encoding",
-                "filetype",
-            },
-        },
-    },
+    opts = require("plugin.config.lualine").opts(),
 }
 
 -- config["markdown-preview"] = {
