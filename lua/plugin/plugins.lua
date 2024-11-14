@@ -170,20 +170,7 @@ config["indent-blankline"] = {
     "lukas-reineke/indent-blankline.nvim",
     event = "User Loading",
     main = "ibl",
-    opts = {
-        exclude = {
-            filetypes = {
-                "dashboard",
-                "terminal",
-                "help",
-                "log",
-                "markdown",
-                "TelescopePrompt",
-                "lsp-installer",
-                "lspinfo",
-            },
-        },
-    },
+    opts = require("plugin.config.indent_blankline").opts(),
 }
 
 config.lualine = {
@@ -781,7 +768,6 @@ config["nvim-tmux-navigation"] = {
         require("plugin.config.nvim_tmux_navigation").setup()
     end,
 }
-
 
 -- Colorschemes
 config["ayu"] = {
