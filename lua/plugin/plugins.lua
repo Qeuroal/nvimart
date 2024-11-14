@@ -140,17 +140,17 @@ config.gitsigns = {
     keys = require("plugin.config.gitsigns").setKeymapping(),
 }
 
-config["grug-far"] = {
-    "MagicDuck/grug-far.nvim",
-    opts = {
-        disableBufferLineNumbers = true,
-        startInInsertMode = true,
-        windowCreationCommand = "tabnew %",
-    },
-    keys = {
-        { "<leader>ug", "<Cmd>GrugFar<CR>", desc = "find and replace", silent = true, noremap = true },
-    },
-}
+-- config["grug-far"] = {
+--     "MagicDuck/grug-far.nvim",
+--     opts = {
+--         disableBufferLineNumbers = true,
+--         startInInsertMode = true,
+--         windowCreationCommand = "tabnew %",
+--     },
+--     keys = {
+--         { "<leader>ug", "<Cmd>GrugFar<CR>", desc = "find and replace", silent = true, noremap = true },
+--     },
+-- }
 
 config.hop = {
     "smoka7/hop.nvim",
@@ -782,15 +782,6 @@ config["nvim-tmux-navigation"] = {
     end,
 }
 
--- !!! 需要补充快捷键
--- config["hop"] = {
---     'phaazon/hop.nvim',
---     branch = 'v2',      -- optional but strongly recommended
---     config = function()
---         -- you can configure Hop the way you like here; see :h hop-config
---         require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
---     end,
--- }
 
 -- Colorschemes
 config["ayu"] = {
