@@ -374,24 +374,12 @@ config.surround = {
 
 config.telescope = {
     "nvim-telescope/telescope.nvim",
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-        "LinArcX/telescope-env.nvim",
-        {
-            "nvim-telescope/telescope-fzf-native.nvim",
-            build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && "
-                .. "cmake --build build --config Release && "
-                .. "cmake --install build --prefix build",
-        },
-    },
+    dependencies = require("plugin.config.telescope").dependencies(),
     -- ensure that other plugins that use telescope can function properly
     cmd = "Telescope",
     opts = require("plugin.config.telescope").opts(),
     config = function(_, opts)
-        local telescope = require "telescope"
-        telescope.setup(opts)
-        telescope.load_extension "fzf"
-        telescope.load_extension "env"
+        require("plugin.config.telescope").opts()
     end,
     keys = require("plugin.config.telescope").keymapping(),
 }
