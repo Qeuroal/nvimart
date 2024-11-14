@@ -430,22 +430,9 @@ config["zen-mode"] = {
     "folke/zen-mode.nvim",
     -- Set high priority to ensure this is loaded before nvim-transparent
     priority = priority.HIGH,
-    opts = {
-        window = {
-            backdrop = 0.8,
-            width = vim.fn.winwidth(0) - 16,
-            height = vim.fn.winheight(0) + 1,
-        },
-        on_open = function()
-            vim.opt.cmdheight = 1
-        end,
-        on_close = function()
-            vim.opt.cmdheight = 2
-        end,
-    },
+    opts = require("plugin.config.zen_mode").opts(),
     config = function(_, opts)
-        vim.api.nvim_command "highlight link ZenBg NvimartNormal"
-        require("zen-mode").setup(opts)
+        require("plugin.config.zen_mode").setup(_, opts)
     end,
     keys = {
         { "<leader>uz", "<Cmd>ZenMode<CR>", desc = "toggle zen mode", silent = true, noremap = true },
