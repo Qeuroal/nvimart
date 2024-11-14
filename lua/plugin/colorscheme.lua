@@ -119,7 +119,7 @@ gvimconf.colorschemes = {
         },
         background = "dark",
     },
-    onedark = {
+    ["onedark"] = {
         name = "onedark"
     }
 }

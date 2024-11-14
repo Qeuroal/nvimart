@@ -1,8 +1,7 @@
-gvimconf = {}
+require("bootstrap"):init()
 
 require("config")
 require("plugin")
-require("color")
 require("lsp")
 
 baseUtils = require("utils.basic")
