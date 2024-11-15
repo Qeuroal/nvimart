@@ -86,10 +86,16 @@ gvimconf.keymap.general = {
     move_up     = { "n", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true } },
 
     -- windows navigate
-    navigate_up     = { "n", "<C-k>", "<C-w>k", { noremap = true, silent=true } },
-    navigate_down   = { "n", "<C-j>", "<C-w>j", { noremap = true, silent=true } },
-    navigate_left   = { "n", "<C-h>", "<C-w>h", { noremap = true, silent=true } },
-    navigate_right  = { "n", "<C-l>", "<C-w>l", { noremap = true, silent=true } },
+    navigate_up     = { "n", "<C-k>", "<C-w>k", { noremap = true, silent = true } },
+    navigate_down   = { "n", "<C-j>", "<C-w>j", { noremap = true, silent = true } },
+    navigate_left   = { "n", "<C-h>", "<C-w>h", { noremap = true, silent = true } },
+    navigate_right  = { "n", "<C-l>", "<C-w>l", { noremap = true, silent = true } },
+
+    -- cursor
+    cursor_up       = { "i", "<C-k>", "<Up>", { noremap = true, silent = true} },
+    cursor_down     = { "i", "<C-j>", "<Down>", { noremap = true, silent = true} },
+    cursor_left     = { "i", "<C-h>", "<Left>", { noremap = true, silent = true} },
+    cursor_right    = { "i", "<C-l>", "<Right>", { noremap = true, silent = true} },
 
     -- new_line_below_normal = { "n", "<A-o>", "o<Esc>", },
     -- new_line_above_normal = { "n", "<A-O>", "O<Esc>", },
