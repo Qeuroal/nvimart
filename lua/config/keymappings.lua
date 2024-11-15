@@ -1,5 +1,3 @@
--- vim.g.mapleader = " "
--- vim.g.maplocalleader = ";"
 vim.g.mapleader = (gvimconf.leader == "space" and " ") or gvimconf.leader
 vim.g.maplocalleader = (gvimconf.localleader == "space" and " ") or gvimconf.localleader
 
