@@ -3,26 +3,8 @@ local M = {}
 function M.opts()
     return {
         ensure_installed = {
-            "bash",
-            "c",
-            "c_sharp",
-            "cpp",
-            "css",
-            "go",
-            "html",
-            "javascript",
-            "json",
-            "lua",
-            "markdown",
-            "markdown_inline",
-            "python",
-            "query",
-            "rust",
-            "typescript",
-            "typst",
-            "tsx",
-            "vim",
-            "vimdoc",
+            "bash", "c", "c_sharp", "cpp", "css", "go", "html", "javascript", "json", "lua", "markdown", "markdown_inline", "python",
+            "query", "rust", "typescript", "typst", "tsx", "vim", "vimdoc",
         },
         highlight = {
             enable = true,
