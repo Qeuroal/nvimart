@@ -1,5 +1,23 @@
 local M = {}
 
+function M.keymap()
+    return {
+        { "<leader>bc", "<Cmd>BufferLinePickClose<CR>", desc = "pick close", silent = true, noremap = true },
+        -- <esc> is added in case current buffer is the last
+        {
+            "<leader>bd",
+            "<Cmd>BufferLineClose 0<CR><ESC>",
+            desc = "close current buffer",
+            silent = true,
+            noremap = true,
+        },
+        { "<leader>bp", "<Cmd>BufferLineCyclePrev<CR>", desc = "prev buffer", silent = true, noremap = true },
+        { "<leader>bn", "<Cmd>BufferLineCycleNext<CR>", desc = "next buffer", silent = true, noremap = true },
+        { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", desc = "close others", silent = true, noremap = true },
+        { "<leader>bs", "<Cmd>BufferLinePick<CR>", desc = "pick buffer", silent = true, noremap = true },
+    }
+end
+
 function M.setup(_, opts)
     vim.api.nvim_create_user_command(
         "BufferLineClose", 

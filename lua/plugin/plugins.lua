@@ -64,21 +64,7 @@ config.bufferline = {
     config = function(_, opts)
         require("plugin.config.bufferline").setup(_, opts)
     end,
-    keys = {
-        { "<leader>bc", "<Cmd>BufferLinePickClose<CR>", desc = "pick close", silent = true, noremap = true },
-        -- <esc> is added in case current buffer is the last
-        {
-            "<leader>bd",
-            "<Cmd>BufferLineClose 0<CR><ESC>",
-            desc = "close current buffer",
-            silent = true,
-            noremap = true,
-        },
-        { "<leader>bp", "<Cmd>BufferLineCyclePrev<CR>", desc = "prev buffer", silent = true, noremap = true },
-        { "<leader>bn", "<Cmd>BufferLineCycleNext<CR>", desc = "next buffer", silent = true, noremap = true },
-        { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", desc = "close others", silent = true, noremap = true },
-        { "<leader>bs", "<Cmd>BufferLinePick<CR>", desc = "pick buffer", silent = true, noremap = true },
-    },
+    keys = require("plugin.config.bufferline").keymap(),
 }
 
 -- 高亮 RGB 颜色
