@@ -66,7 +66,7 @@ config.comment = {
         require("plugin.config.comment").setup(_, opts)
     end,
     keys = function()
-        return require("plugin.config.comment").setKeymapping()
+        return require("plugin.config.comment").keymapping()
     end,
 }
 
@@ -87,7 +87,7 @@ config.gitsigns = {
     event = "User Loading",
     main = "gitsigns",
     opts = {},
-    keys = require("plugin.config.gitsigns").setKeymapping(),
+    keys = require("plugin.config.gitsigns").keymapping(),
 }
 
 -- config["grug-far"] = {

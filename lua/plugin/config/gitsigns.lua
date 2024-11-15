@@ -1,6 +1,6 @@
 local M = {}
 
-function M.setKeymapping()
+function M.keymapping()
     return {
         { "<leader>gn", "<Cmd>Gitsigns next_hunk<CR>", desc = "next hunk", silent = true, noremap = true },
         { "<leader>gp", "<Cmd>Gitsigns prev_hunk<CR>", desc = "prev hunk", silent = true, noremap = true },
