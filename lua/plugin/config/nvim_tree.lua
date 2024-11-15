@@ -14,8 +14,7 @@ function M.opts()
 
             require("utils.basic").group_map({
                 edit = {
-                    "n",
-                    "<CR>",
+                    "n", "<CR>",
                     function()
                         local node = api.tree.get_node_under_cursor()
                         if node.name ~= ".." and node.fs_stat.type == "file" then
@@ -24,35 +23,8 @@ function M.opts()
                             --
                             -- Not all are included for speed's sake
                             local extensions_opened_externally = {
-                                "avi",
-                                "bmp",
-                                "doc",
-                                "docx",
-                                "exe",
-                                "flv",
-                                "gif",
-                                "jpg",
-                                "jpeg",
-                                "m4a",
-                                "mov",
-                                "mp3",
-                                "mp4",
-                                "mpeg",
-                                "mpg",
-                                "pdf",
-                                "png",
-                                "ppt",
-                                "pptx",
-                                "psd",
-                                "pub",
-                                "rar",
-                                "rtf",
-                                "tif",
-                                "tiff",
-                                "wav",
-                                "xls",
-                                "xlsx",
-                                "zip",
+                                "avi", "bmp", "doc", "docx", "exe", "flv", "gif", "jpg", "jpeg", "m4a", "mov", "mp3", "mp4", "mpeg", "mpg", "pdf",
+                                "png", "ppt", "pptx", "psd", "pub", "rar", "rtf", "tif", "tiff", "wav", "xls", "xlsx", "zip",
                             }
                             if table.find(extensions_opened_externally, node.extension) then
                                 api.node.run.system()
@@ -99,7 +71,7 @@ function M.opts()
         actions = {
             open_file = {
                 resize_window = true,
-                quit_on_open = true,
+                quit_on_open = false,
             },
         },
     }
