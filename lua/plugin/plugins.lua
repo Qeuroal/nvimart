@@ -116,6 +116,15 @@ config.gitsigns = {
 --     },
 -- }
 
+config.flash = {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    ---@type Flash.Config
+    opts = {},
+    -- stylua: ignore
+    keys = require("plugin.config.flash").keymapping(),
+}
+
 config["indent-blankline"] = {
     "lukas-reineke/indent-blankline.nvim",
     event = "User Loading",
