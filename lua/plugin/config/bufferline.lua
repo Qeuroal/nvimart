@@ -38,8 +38,8 @@ function M.keymap()
             silent = true,
             noremap = true,
         },
-        { "<leader>bp", "<Cmd>BufferLineCyclePrev<CR>", desc = "prev buffer", silent = true, noremap = true },
-        { "<leader>bn", "<Cmd>BufferLineCycleNext<CR>", desc = "next buffer", silent = true, noremap = true },
+        { "<c-p>", "<Cmd>BufferLineCyclePrev<CR>", desc = "prev buffer", silent = true, noremap = true },
+        { "<c-n>", "<Cmd>BufferLineCycleNext<CR>", desc = "next buffer", silent = true, noremap = true },
         { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", desc = "close others", silent = true, noremap = true },
         { "<leader>bs", "<Cmd>BufferLinePick<CR>", desc = "pick buffer", silent = true, noremap = true },
     }
