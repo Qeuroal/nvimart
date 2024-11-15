@@ -37,30 +37,7 @@ config.bufferline = {
         "nvim-tree/nvim-web-devicons",
     },
     event = "User Loading",
-    opts = {
-        options = {
-            close_command = ":BufferLineClose %d",
-            right_mouse_command = ":BufferLineClose %d",
-            separator_style = "thin",
-            offsets = {
-                {
-                    filetype = "NvimTree",
-                    text = "File Explorer",
-                    highlight = "Directory",
-                    text_align = "left",
-                },
-            },
-            diagnostics = "nvim_lsp",
-            diagnostics_indicator = function(_, _, diagnostics_dict, _)
-                local s = " "
-                for e, n in pairs(diagnostics_dict) do
-                    local sym = e == "error" and symbols.Error or (e == "warning" and symbols.Warn or symbols.Info)
-                    s = s .. n .. sym
-                end
-                return s
-            end,
-        },
-    },
+    opts = require("plugin.config.bufferline").opts(),
     config = function(_, opts)
         require("plugin.config.bufferline").setup(_, opts)
     end,
@@ -72,20 +49,7 @@ config.colorizer = {
     "NvChad/nvim-colorizer.lua",
     main = "colorizer",
     event = "User Loading",
-    opts = {
-        filetypes = {
-            "*",
-            css = {
-                names = true,
-            },
-        },
-        user_default_options = {
-            css = true,
-            css_fn = true,
-            names = false,
-            always_update = true,
-        },
-    },
+    opts = require("plugin.config.colorizer").opts(),
     config = function (_, opts)
         require("colorizer").setup(opts)
         vim.cmd "ColorizerToggle"

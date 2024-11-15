@@ -1,5 +1,32 @@
 local M = {}
 
+function M.opts()
+    return {
+        options = {
+            close_command = ":BufferLineClose %d",
+            right_mouse_command = ":BufferLineClose %d",
+            separator_style = "thin",
+            offsets = {
+                {
+                    filetype = "NvimTree",
+                    text = "File Explorer",
+                    highlight = "Directory",
+                    text_align = "left",
+                },
+            },
+            diagnostics = "nvim_lsp",
+            diagnostics_indicator = function(_, _, diagnostics_dict, _)
+                local s = " "
+                for e, n in pairs(diagnostics_dict) do
+                    local sym = e == "error" and symbols.Error or (e == "warning" and symbols.Warn or symbols.Info)
+                    s = s .. n .. sym
+                end
+                return s
+            end,
+        },
+    }
+end
+
 function M.keymap()
     return {
         { "<leader>bc", "<Cmd>BufferLinePickClose<CR>", desc = "pick close", silent = true, noremap = true },
