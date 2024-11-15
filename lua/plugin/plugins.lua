@@ -102,19 +102,19 @@ config.gitsigns = {
 --     },
 -- }
 
-config.hop = {
-    "smoka7/hop.nvim",
-    main = "hop",
-    opts = {
-        -- This is actually equal to:
-        --   require("hop.hint").HintPosition.END
-        hint_position = 3,
-        keys = "fjghdksltyrueiwoqpvbcnxmza",
-    },
-    keys = {
-        { "<leader>hp", "<Cmd>HopWord<CR>", desc = "hop word", silent = true, noremap = true },
-    },
-}
+-- config.hop = {
+--     "smoka7/hop.nvim",
+--     main = "hop",
+--     opts = {
+--         -- This is actually equal to:
+--         --   require("hop.hint").HintPosition.END
+--         hint_position = 3,
+--         keys = "fjghdksltyrueiwoqpvbcnxmza",
+--     },
+--     keys = {
+--         { "<leader>hp", "<Cmd>HopWord<CR>", desc = "hop word", silent = true, noremap = true },
+--     },
+-- }
 
 config["indent-blankline"] = {
     "lukas-reineke/indent-blankline.nvim",
@@ -426,7 +426,7 @@ gvimconf.keymap.prefix = {
     { "<leader>b", group = "+buffer" },
     { "<leader>c", group = "+comment" },
     { "<leader>g", group = "+git" },
-    { "<leader>h", group = "+hop" },
+    -- { "<leader>h", group = "+hop" },
     { "<leader>l", group = "+lsp" },
     { "<leader>t", group = "+telescope" },
     { "<leader>u", group = "+utils" },
