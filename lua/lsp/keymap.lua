@@ -30,7 +30,7 @@ gvimconf.keymap.lsp.mapLsp = {
 }
 
 gvimconf.keymap.lsp.cmp = {
-    toggle_completion = "<C-l>",
+    toggle_completion = "<C-o>",
     prev_item = "<C-k>",
     next_item = "<C-j>",
     confirm = "<Tab>",
