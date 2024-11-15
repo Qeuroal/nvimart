@@ -1,5 +1,6 @@
 local M = {
     leader = "space",
+    localleader = ";",
     plugins = {}
 }
 

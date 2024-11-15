@@ -37,48 +37,11 @@ config.bufferline = {
         "nvim-tree/nvim-web-devicons",
     },
     event = "User Loading",
-    opts = {
-        options = {
-            close_command = ":BufferLineClose %d",
-            right_mouse_command = ":BufferLineClose %d",
-            separator_style = "thin",
-            offsets = {
-                {
-                    filetype = "NvimTree",
-                    text = "File Explorer",
-                    highlight = "Directory",
-                    text_align = "left",
-                },
-            },
-            diagnostics = "nvim_lsp",
-            diagnostics_indicator = function(_, _, diagnostics_dict, _)
-                local s = " "
-                for e, n in pairs(diagnostics_dict) do
-                    local sym = e == "error" and symbols.Error or (e == "warning" and symbols.Warn or symbols.Info)
-                    s = s .. n .. sym
-                end
-                return s
-            end,
-        },
-    },
+    opts = require("plugin.config.bufferline").opts(),
     config = function(_, opts)
         require("plugin.config.bufferline").setup(_, opts)
     end,
-    keys = {
-        { "<leader>bc", "<Cmd>BufferLinePickClose<CR>", desc = "pick close", silent = true, noremap = true },
-        -- <esc> is added in case current buffer is the last
-        {
-            "<leader>bd",
-            "<Cmd>BufferLineClose 0<CR><ESC>",
-            desc = "close current buffer",
-            silent = true,
-            noremap = true,
-        },
-        { "<leader>bp", "<Cmd>BufferLineCyclePrev<CR>", desc = "prev buffer", silent = true, noremap = true },
-        { "<leader>bn", "<Cmd>BufferLineCycleNext<CR>", desc = "next buffer", silent = true, noremap = true },
-        { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", desc = "close others", silent = true, noremap = true },
-        { "<leader>bs", "<Cmd>BufferLinePick<CR>", desc = "pick buffer", silent = true, noremap = true },
-    },
+    keys = require("plugin.config.bufferline").keymap(),
 }
 
 -- 高亮 RGB 颜色
@@ -86,20 +49,7 @@ config.colorizer = {
     "NvChad/nvim-colorizer.lua",
     main = "colorizer",
     event = "User Loading",
-    opts = {
-        filetypes = {
-            "*",
-            css = {
-                names = true,
-            },
-        },
-        user_default_options = {
-            css = true,
-            css_fn = true,
-            names = false,
-            always_update = true,
-        },
-    },
+    opts = require("plugin.config.colorizer").opts(),
     config = function (_, opts)
         require("colorizer").setup(opts)
         vim.cmd "ColorizerToggle"
@@ -116,7 +66,7 @@ config.comment = {
         require("plugin.config.comment").setup(_, opts)
     end,
     keys = function()
-        return require("plugin.config.comment").setKeymapping()
+        return require("plugin.config.comment").keymapping()
     end,
 }
 
@@ -137,7 +87,7 @@ config.gitsigns = {
     event = "User Loading",
     main = "gitsigns",
     opts = {},
-    keys = require("plugin.config.gitsigns").setKeymapping(),
+    keys = require("plugin.config.gitsigns").keymapping(),
 }
 
 -- config["grug-far"] = {
@@ -152,18 +102,27 @@ config.gitsigns = {
 --     },
 -- }
 
-config.hop = {
-    "smoka7/hop.nvim",
-    main = "hop",
-    opts = {
-        -- This is actually equal to:
-        --   require("hop.hint").HintPosition.END
-        hint_position = 3,
-        keys = "fjghdksltyrueiwoqpvbcnxmza",
-    },
-    keys = {
-        { "<leader>hp", "<Cmd>HopWord<CR>", desc = "hop word", silent = true, noremap = true },
-    },
+-- config.hop = {
+--     "smoka7/hop.nvim",
+--     main = "hop",
+--     opts = {
+--         -- This is actually equal to:
+--         --   require("hop.hint").HintPosition.END
+--         hint_position = 3,
+--         keys = "fjghdksltyrueiwoqpvbcnxmza",
+--     },
+--     keys = {
+--         { "<leader>hp", "<Cmd>HopWord<CR>", desc = "hop word", silent = true, noremap = true },
+--     },
+-- }
+
+config.flash = {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    ---@type Flash.Config
+    opts = {},
+    -- stylua: ignore
+    keys = require("plugin.config.flash").keymapping(),
 }
 
 config["indent-blankline"] = {
@@ -404,7 +363,7 @@ config.undotree = {
         vim.g.undotree_TreeNodeShape = "-"
     end,
     keys = {
-        { "<leader>uu", "<Cmd>UndotreeToggle<CR>", desc = "undo tree toggle", silent = true, noremap = true },
+        { "<leader><f5>", "<Cmd>UndotreeToggle<CR>", desc = "undo tree toggle", silent = true, noremap = true },
     },
 }
 
@@ -476,7 +435,7 @@ gvimconf.keymap.prefix = {
     { "<leader>b", group = "+buffer" },
     { "<leader>c", group = "+comment" },
     { "<leader>g", group = "+git" },
-    { "<leader>h", group = "+hop" },
+    -- { "<leader>h", group = "+hop" },
     { "<leader>l", group = "+lsp" },
     { "<leader>t", group = "+telescope" },
     { "<leader>u", group = "+utils" },

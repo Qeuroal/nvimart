@@ -1,6 +1,6 @@
 local M = {}
 
-function M.setKeymapping()
+function M.keymapping()
     local vvar = vim.api.nvim_get_vvar
 
     local toggle_current_line = function()

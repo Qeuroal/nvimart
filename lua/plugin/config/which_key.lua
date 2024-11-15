@@ -25,7 +25,7 @@ function M.opts()
             { "<leader>b", group = "+buffer" },
             { "<leader>c", group = "+comment" },
             { "<leader>g", group = "+git" },
-            { "<leader>h", group = "+hop" },
+            -- { "<leader>h", group = "+hop" },
             { "<leader>l", group = "+lsp" },
             { "<leader>t", group = "+telescope" },
             { "<leader>u", group = "+utils" },
