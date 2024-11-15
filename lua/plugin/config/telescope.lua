@@ -47,7 +47,7 @@ end
 
 function M.keymapping()
     return {
-        { "<leader>f", "<Cmd>Telescope find_files<CR>", desc = "find file", silent = true, noremap = true },
+        { "<leader>o", "<Cmd>Telescope find_files<CR>", desc = "find file", silent = true, noremap = true },
         { "<leader>s", "<Cmd>Telescope live_grep<CR>", desc = "live grep", silent = true, noremap = true },
         { "<leader>ue", "<Cmd>Telescope env<CR>", desc = "environment variables", silent = true, noremap = true },
     }
