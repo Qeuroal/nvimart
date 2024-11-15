@@ -338,7 +338,7 @@ config.telescope = {
     cmd = "Telescope",
     opts = require("plugin.config.telescope").opts(),
     config = function(_, opts)
-        require("plugin.config.telescope").opts()
+        require("plugin.config.telescope").setup(_, opts)
     end,
     keys = require("plugin.config.telescope").keymapping(),
 }
