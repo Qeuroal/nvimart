@@ -1,4 +1,4 @@
-gvimconf.plugins.lspsaga = {
+gvimconf.plugin.lspsaga = {
     "nvimdev/lspsaga.nvim",
     cmd = "Lspsaga",
     opts = {
@@ -13,7 +13,7 @@ gvimconf.plugins.lspsaga = {
     },
 }
 
-gvimconf.plugins.trouble = {
+gvimconf.plugin.trouble = {
     "folke/trouble.nvim",
     opts = {},
     cmd = "Trouble",

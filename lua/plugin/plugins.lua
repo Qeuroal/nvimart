@@ -1,6 +1,6 @@
 -- Configuration for each individual plugin
 ---@diagnostic disable: need-check-nil
-local config = {}
+local config = gvimconf.plugin
 local symbols = gvimconf.symbols
 local config_root = string.gsub(vim.fn.stdpath "config", "\\", "/")
 local priority = {
@@ -430,7 +430,6 @@ config["onedark"] = {
     priority = 1000, -- Ensure it loads first
 }
 
-gvimconf.plugins = config
 gvimconf.keymap.prefix = {
     { "<leader>b", group = "+buffer" },
     { "<leader>c", group = "+comment" },
