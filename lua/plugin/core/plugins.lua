@@ -274,14 +274,14 @@ config["nvim-transparent"] = {
     end,
 }
 
-config["nvim-tree"] = {
-    "nvim-tree/nvim-tree.lua",
-    dependencies = "nvim-tree/nvim-web-devicons",
-    opts = require("plugin.config.nvim_tree").opts(),
-    keys = {
-        { "<leader>e", "<Cmd>NvimTreeToggle<CR>", desc = "toggle nvim tree", silent = true, noremap = true },
-    },
-}
+-- config["nvim-tree"] = {
+--     "nvim-tree/nvim-tree.lua",
+--     dependencies = "nvim-tree/nvim-web-devicons",
+--     opts = require("plugin.config.nvim_tree").opts(),
+--     keys = {
+--         { "<leader>e", "<Cmd>NvimTreeToggle<CR>", desc = "toggle nvim tree", silent = true, noremap = true },
+--     },
+-- }
 
 config["nvim-treesitter"] = {
     "nvim-treesitter/nvim-treesitter",
