@@ -106,7 +106,7 @@ end
 
 function M.deprecate(old, new)
     M.warn(("`%s` is deprecated. Please use `%s` instead"):format(old, new), {
-        title = "LazyVim",
+        title = "NVIMART",
         once = true,
         stacktrace = true,
         stacklevel = 6,
