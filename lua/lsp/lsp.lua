@@ -1,6 +1,7 @@
 local symbols = gvimconf.symbols
+local pluginList = gvimconf.plugin.list
 
-gvimconf.plugin["flutter-tools"] = {
+pluginList["flutter-tools"] = {
     "akinsho/flutter-tools.nvim",
     ft = "dart",
     dependencies = {
@@ -28,7 +29,7 @@ gvimconf.plugin["flutter-tools"] = {
     enabled = gvimconf.lsp.flutter.enabled,
 }
 
-gvimconf.plugin["rust-tools"] = {
+pluginList["rust-tools"] = {
     "simrat39/rust-tools.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     ft = "rust",
@@ -43,7 +44,7 @@ gvimconf.plugin["rust-tools"] = {
     enabled = gvimconf.lsp.rust.enabled,
 }
 
-gvimconf.plugin["typst-preview"] = {
+pluginList["typst-preview"] = {
     "chomosuke/typst-preview.nvim",
     ft = "typst",
     build = function()
@@ -63,7 +64,7 @@ gvimconf.plugin["typst-preview"] = {
     enabled = gvimconf.lsp["typst-lsp"].enabled,
 }
 
-gvimconf.plugin.mason = {
+pluginList.mason = {
     "williamboman/mason.nvim",
     dependencies = {
         "neovim/nvim-lspconfig",

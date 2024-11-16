@@ -1,7 +1,9 @@
 local M = {
     leader = "space",
     localleader = ";",
-    plugin = {},
+    plugin = {
+        list = {},
+    },
     icons = require("utils.icons"),
 }
 

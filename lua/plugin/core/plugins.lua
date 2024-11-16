@@ -1,6 +1,6 @@
 -- Configuration for each individual plugin
 ---@diagnostic disable: need-check-nil
-local config = gvimconf.plugin
+local config = gvimconf.plugin.list
 local symbols = gvimconf.symbols
 local config_root = string.gsub(vim.fn.stdpath "config", "\\", "/")
 local priority = {

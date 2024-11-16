@@ -1,6 +1,7 @@
 local symbols = gvimconf.symbols
+local pluginList = gvimconf.plugin.list
 
-gvimconf.plugin["nvim-cmp"] = {
+pluginList["nvim-cmp"] = {
     "hrsh7th/nvim-cmp",
     dependencies = {
         "L3MON4D3/LuaSnip",

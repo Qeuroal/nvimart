@@ -1,6 +1,6 @@
 -- While null-ls can do a lot more than just formatting, I am leaving the rest to LspSaga
 -- See extra.lua
-gvimconf.plugin["null-ls"] = {
+gvimconf.plugin.list["null-ls"] = {
     "nvimtools/none-ls.nvim",
     dependencies = "nvim-lua/plenary.nvim",
     event = "User Loading",
