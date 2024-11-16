@@ -22,7 +22,7 @@ pluginList["flutter-tools"] = {
         },
         lsp = {
             on_attach = function(_, bufnr)
-                require("lsp.utils").lsp_attach_keymap(bufnr)
+                require("plugin.lsp.utils").lsp_attach_keymap(bufnr)
             end,
         },
     },
@@ -37,7 +37,7 @@ pluginList["rust-tools"] = {
     opts = {
         server = {
             on_attach = function(_, bufnr)
-                require("lsp.utils").lsp_attach_keymap(bufnr)
+                require("plugin.lsp.utils").lsp_attach_keymap(bufnr)
             end,
         },
     },
@@ -131,7 +131,7 @@ pluginList.mason = {
                         client.server_capabilities.documentRangeFormattingProvider = false
                     end
 
-                    require("lsp.utils").lsp_attach_keymap(bufnr)
+                    require("plugin.lsp.utils").lsp_attach_keymap(bufnr)
 
                     user_on_attach(client, bufnr)
                 end

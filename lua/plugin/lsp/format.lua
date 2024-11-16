@@ -25,7 +25,7 @@ gvimconf.plugin.list["null-ls"] = {
         {
             "<leader>lf",
             function()
-                local lsp_is_active = require("lsp.utils").lsp_is_active
+                local lsp_is_active = require("plugin.lsp.utils").lsp_is_active
 
                 -- do not format if no lsp is attached to the buffer
                 if not lsp_is_active() then
