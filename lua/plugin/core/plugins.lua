@@ -425,10 +425,10 @@ config["tokyonight"] = {
     lazy = true,
 }
 
-config["onedark"] = {
-    "olimorris/onedarkpro.nvim",
-    priority = 1000, -- Ensure it loads first
-}
+-- config["onedark"] = {
+--     "olimorris/onedarkpro.nvim",
+--     priority = 1000, -- Ensure it loads first
+-- }
 
 gvimconf.keymap.prefix = {
     { "<leader>b", group = "+buffer" },

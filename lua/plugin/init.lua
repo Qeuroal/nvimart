@@ -2,6 +2,5 @@
 -- plugin.load()
 
 require("plugin.plugins")
-require("plugin.colorscheme")
 require("plugin.keymappings")
 
