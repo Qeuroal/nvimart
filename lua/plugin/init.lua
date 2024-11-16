@@ -6,6 +6,7 @@ require("plugin.colorscheme")
 require("plugin.keymappings")
 
 -- Only load plugins and colorscheme when --noplugin arg is not present
+local baseUtils = require("utils.basic")
 if not baseUtils.noplugin then
     -- Load plugins
     local config = {}

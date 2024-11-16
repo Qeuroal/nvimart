@@ -1,8 +1,9 @@
 require("bootstrap"):init()
 
 require("config")
+require("plugin")
 
-baseUtils = require("utils.basic")
+local baseUtils = require("utils.basic")
 
 -- Load user configuration files
 local config_root = string.gsub(vim.fn.stdpath "config", "\\", "/")
@@ -12,7 +13,7 @@ end
 
 local custom_path = config_root .. "/lua/custom/"
 if baseUtils.file_exists(custom_path .. "init.lua") then
-    require "custom.init"
+    require("custom.init")
 end
 
 -- Define keymap
@@ -23,7 +24,6 @@ for filetype, config in pairs(gvimconf.ft) do
     baseUtils.ft(filetype, config)
 end
 
-require("plugin")
 -- Prepend this to runtimepath last as it would be overridden by lazy otherwise
 if vim.uv.fs_scandir(custom_path) then
     vim.opt.rtp:prepend(custom_path)
