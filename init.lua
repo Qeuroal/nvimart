@@ -2,7 +2,6 @@ require("bootstrap"):init()
 
 require("config")
 require("plugin")
-require("lsp")
 
 baseUtils = require("utils.basic")
 
@@ -29,7 +28,7 @@ end
 if not baseUtils.noplugin then
     -- Load plugins
     local config = {}
-    for _, plugin in pairs(gvimconf.plugins) do
+    for _, plugin in pairs(gvimconf.plugin.list) do
         config[#config + 1] = plugin
     end
     require("lazy").setup(config, gvimconf.lazy)

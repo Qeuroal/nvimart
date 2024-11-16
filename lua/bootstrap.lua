@@ -2,7 +2,7 @@ local M = {}
 
 function M:init()
     -- must first line
-    gvimconf = vim.deepcopy(require("default"))
+    _G.gvimconf = vim.deepcopy(require("default"))
 
     -- plugin config bootstrap
     local plugins = require("plugin.config.bootstrap")
