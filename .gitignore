@@ -5,3 +5,4 @@ tags
 vimart_envs
 lazy-lock.json
 custom
+*.bak
