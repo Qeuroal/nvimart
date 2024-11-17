@@ -22,17 +22,17 @@ local Text = require("lazy.view.text")
 ---@field plugins string[]
 ---@field optional string[]
 
----@class lazyvim.util.extras
+---@class utils.extras
 local M = {}
 M.buf = 0
 
 ---@type LazyExtraSource[]
 M.sources = {
-    { name = "LazyVim", desc = "LazyVim extras", module = "lazyvim.plugins.extras" },
+    { name = "Gvimconf", desc = "Gvimconf extras", module = "plugin.extra" },
     { name = "User", desc = "User extras", module = "plugins.extras" },
 }
 
-M.ns = vim.api.nvim_create_namespace("lazyvim.extras")
+M.ns = vim.api.nvim_create_namespace("gvimconf.extra")
 ---@type string[]
 M.state = nil
 
@@ -51,7 +51,7 @@ function M.wants(opts)
     end
     if opts.root then
         opts.root = type(opts.root) == "string" and { opts.root } or opts.root
-        return #LazyVim.root.detectors.pattern(M.buf, opts.root) > 0
+        return #gvimconf.utils.root.detectors.pattern(M.buf, opts.root) > 0
     end
     return false
 end
@@ -61,9 +61,9 @@ function M.get()
     M.state = M.state or LazyConfig.spec.modules
     local extras = {} ---@type LazyExtra[]
     for _, source in ipairs(M.sources) do
-        local root = LazyVim.find_root(source.module)
+        local root = gvimconf.utils.find_root(source.module)
         if root then
-            LazyVim.walk(root, function(path, name, type)
+            gvimconf.utils.walk(root, function(path, name, type)
                 if (type == "file" or type == "link") and name:match("%.lua$") then
                     name = path:sub(#root + 2, -5):gsub("/", ".")
                     local ok, extra = pcall(M.get_extra, source, source.module .. "." .. name)
@@ -123,7 +123,7 @@ function M.get_extra(source, modname)
         imports = imports,
         desc = require(modname).desc,
         recommended = recommended,
-        managed = vim.tbl_contains(LazyVim.config.json.data.extras, modname) or not enabled,
+        managed = vim.tbl_contains(gvimconf.config.json.data.extras, modname) or not enabled,
         plugins = plugins,
         optional = optional,
     }
@@ -140,7 +140,7 @@ local X = {}
 function X.new()
     local self = setmetatable({}, { __index = X })
     M.buf = vim.api.nvim_get_current_buf()
-    self.float = Float.new({ title = "LazyVim Extras" })
+    self.float = Float.new({ title = "Gvimconf Extra" })
     self.float:on_key("x", function()
         self:toggle()
     end, "Toggle extra")
@@ -161,32 +161,32 @@ function X:toggle()
     for _, extra in ipairs(self.extras) do
         if extra.row == pos[1] then
             if not extra.managed then
-                LazyVim.error(
+                gvimconf.utils.error(
                     "Not managed by LazyExtras. Remove from your config to enable/disable here.",
                     { title = "LazyExtras" }
                 )
                 return
             end
             extra.enabled = not extra.enabled
-            LazyVim.config.json.data.extras = vim.tbl_filter(function(name)
+            gvimconf.config.json.data.extras = vim.tbl_filter(function(name)
                 return name ~= extra.module
-            end, LazyVim.config.json.data.extras)
+            end, gvimconf.config.json.data.extras)
             M.state = vim.tbl_filter(function(name)
                 return name ~= extra.module
             end, M.state)
             if extra.enabled then
-                table.insert(LazyVim.config.json.data.extras, extra.module)
+                table.insert(gvimconf.config.json.data.extras, extra.module)
                 M.state[#M.state + 1] = extra.module
             end
-            table.sort(LazyVim.config.json.data.extras)
-            LazyVim.json.save()
-            LazyVim.info(
+            table.sort(gvimconf.config.json.data.extras)
+            gvimconf.utils.json.save()
+            gvimconf.utils.info(
                 "`"
                 .. extra.name
                 .. "`"
                 .. " "
                 .. (extra.enabled and "**enabled**" or "**disabled**")
-                .. "\nPlease restart LazyVim to apply the changes.",
+                .. "\nPlease restart gvimconf.utils to apply the changes.",
                 { title = "LazyExtras" }
             )
             self:update()
@@ -219,9 +219,9 @@ function X:update()
 end
 
 function X:render()
-    self.text:nl():nl():append("LazyVim Extras", "LazyH1"):nl():nl()
+    self.text:nl():nl():append("Gvimconf Extra", "LazyH1"):nl():nl()
     self.text
-        :append("This is a list of all enabled/disabled LazyVim extras.", "LazyComment")
+        :append("This is a list of all enabled/disabled Gvimconf extra.", "LazyComment")
         :nl()
         :append("Each extra shows the required and optional plugins it may install.", "LazyComment")
         :nl()
@@ -263,7 +263,7 @@ function X:extra(extra)
             self:diagnostic({
                 message = "Required by " .. table.concat(pp, ", "),
             })
-        elseif vim.tbl_contains(LazyVim.plugin.core_imports, extra.module) then
+        elseif vim.tbl_contains(gvimconf.utils.plugin.core_imports, extra.module) then
             self:diagnostic({
                 message = "This extra is included by default",
             })
@@ -285,11 +285,11 @@ function X:extra(extra)
     if extra.recommended then
         self.text:append(" "):append(LazyConfig.options.ui.icons.favorite or " ", "LazyCommit")
     end
-    if extra.source.name ~= "LazyVim" then
+    if extra.source.name ~= "Gvimconf" then
         self.text:append(" "):append(LazyConfig.options.ui.icons.event .. extra.source.name, "LazyReasonEvent")
     end
     for _, import in ipairs(extra.imports) do
-        import = import:gsub("^lazyvim.plugins.extras.", "")
+        import = import:gsub("^gvimconf.utils.plugins.extras.", "")
         self.text:append(" "):append(LazyConfig.options.ui.icons.plugin .. import, "LazyReasonStart")
     end
     for _, plugin in ipairs(extra.plugins) do
