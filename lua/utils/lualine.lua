@@ -1,4 +1,4 @@
----@class lazyvim.util.lualine
+---@class utils.lualine
 local M = {}
 
 ---@param icon string

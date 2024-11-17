@@ -1,10 +1,10 @@
 local M = {}
 
--- LazyVim picker to use.
+-- gvimconf picker to use.
 -- Can be one of: telescope, fzf
 -- Leave it to "auto" to automatically use the picker
 -- enabled with `:LazyExtras`
-vim.g.lazyvim_picker = "auto"
+vim.g.gvimconf_picker = "auto"
 
 -- {{{> load default options
 M.loadBasicOptions = function()

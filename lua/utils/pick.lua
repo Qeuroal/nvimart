@@ -44,11 +44,11 @@ function M.register(picker)
 end
 
 function M.want()
-    vim.g.lazyvim_picker = vim.g.lazyvim_picker or "auto"
-    if vim.g.lazyvim_picker == "auto" then
+    vim.g.gvimconf_picker = vim.g.gvimconf_picker or "auto"
+    if vim.g.gvimconf_picker == "auto" then
         return gvimconf.utils.has_extra("editor.fzf") and "fzf" or "telescope"
     end
-    return vim.g.lazyvim_picker
+    return vim.g.gvimconf_picker
 end
 
 ---@param command? string
