@@ -58,7 +58,7 @@ end
 ---@param extra string
 function M.has_extra(extra)
     local Config = require("config.default")
-    local modname = "lazyvim.plugins.extras." .. extra
+    local modname = "plugin.extras." .. extra
     return vim.tbl_contains(require("lazy.core.config").spec.modules, modname)
         or vim.tbl_contains(Config.json.data.extras, modname)
 end
@@ -245,7 +245,7 @@ end
 for _, level in ipairs({ "info", "warn", "error" }) do
     M[level] = function(msg, opts)
         opts = opts or {}
-        opts.title = opts.title or "LazyVim"
+        opts.title = opts.title or "VIMART"
         return LazyUtil[level](msg, opts)
     end
 end

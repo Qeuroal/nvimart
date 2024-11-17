@@ -3,5 +3,6 @@ require("plugin.core")
 
 local pluginList = gvimconf.plugin.list
 pluginList.autoload = { import = "plugin.autoload" }
+pluginList.lsp_init = require("plugin.lsp.init")
 
 

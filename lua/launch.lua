@@ -26,7 +26,7 @@ if not baseUtils.noplugin then
     for _, plugin in pairs(gvimconf.plugin.list) do
         config[#config + 1] = plugin
     end
-    require("lazy").setup(config, gvimconf.lazy)
+    require("lazy").setup(config, gvimconf.config.lazy)
 
     baseUtils.group_map(gvimconf.keymap.plugins)
 

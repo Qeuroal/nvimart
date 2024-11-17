@@ -63,7 +63,7 @@ local defaults = {
 
 M.json = {
     version = 7,
-    path = vim.g.lazyvim_json or vim.fn.stdpath("config") .. "/vimart.json",
+    path = vim.g.vimart_json or vim.fn.stdpath("config") .. "/vimart.json",
     data = {
         version = nil, ---@type string?
         news = {}, ---@type table<string, string>
@@ -86,11 +86,11 @@ function M.json.load()
     end
 end
 
----@type LazyVimOptions
+---@type VimOptions
 local options
 local lazy_clipboard
 
----@param opts? LazyVimOptions
+---@param opts? VimOptions
 function M.setup(opts)
     options = vim.tbl_deep_extend("force", defaults, opts or {}) or {}
 
@@ -180,9 +180,9 @@ function M.load(name)
         end
     end
     local pattern = "gvimconf.utils" .. name:sub(1, 1):upper() .. name:sub(2)
-    -- always load lazyvim, then user file
+    -- always load gvimconf, then user file
     if M.defaults[name] or name == "options" then
-        _load("lazyvim.config." .. name)
+        _load("gvimconf.config." .. name)
         vim.api.nvim_exec_autocmds("User", { pattern = pattern .. "Defaults", modeline = false })
     end
     _load("config." .. name)
@@ -234,7 +234,7 @@ setmetatable(M, {
         if options == nil then
             return vim.deepcopy(defaults)[key]
         end
-        ---@cast options LazyVimConfig
+        ---@cast options VimConfig
         return options[key]
     end,
 })
