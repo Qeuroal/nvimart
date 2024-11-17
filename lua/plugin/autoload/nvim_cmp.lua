@@ -58,7 +58,7 @@ return {
                 ),
                 formatting = {
                     format = function(entry, item)
-                        local icons = gvimconf.icons.kinds
+                        local icons = gvimconf.config.icons.kinds
                         if icons[item.kind] then
                             item.kind = icons[item.kind] .. item.kind
                         end

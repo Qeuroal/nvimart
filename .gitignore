@@ -6,3 +6,4 @@ vimart_envs
 lazy-lock.json
 custom
 *.bak
+lua/plugin/extras

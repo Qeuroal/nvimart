@@ -6,7 +6,7 @@ local settings = require("config.settings")
 settings.loadDefaultConfig()
 require("config.keymappings")
 
-
+gvimconf.config = require("config.default")
 
 
 
