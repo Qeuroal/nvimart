@@ -1,5 +1,11 @@
 local M = {}
 
+-- LazyVim picker to use.
+-- Can be one of: telescope, fzf
+-- Leave it to "auto" to automatically use the picker
+-- enabled with `:LazyExtras`
+vim.g.lazyvim_picker = "auto"
+
 -- {{{> load default options
 M.loadBasicOptions = function()
     local options = {
