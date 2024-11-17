@@ -369,18 +369,18 @@ return {
     --     },
     -- },
 
-    -- {
-    --     import = "plugin.extra.editor.fzf",
-    --     enabled = function()
-    --         return gvimconf.utils.pick.want() == "fzf"
-    --     end,
-    -- },
-    -- {
-    --     import = "plugin.extra.editor.telescope",
-    --     enabled = function()
-    --         return gvimconf.utils.pick.want() == "telescope"
-    --     end,
-    -- },
+    {
+        import = "plugin.extra.fzf",
+        enabled = function()
+            return gvimconf.utils.pick.want() == "fzf"
+        end,
+    },
+    {
+        import = "plugin.extra.telescope",
+        enabled = function()
+            return gvimconf.utils.pick.want() == "telescope"
+        end,
+    },
 
 
 

@@ -147,7 +147,7 @@ function M.health()
             "`conform.nvim` and `nvim-lint` are now the default formatters and linters in gvimconf.",
             "",
             "You can use those plugins together with `none-ls.nvim`,",
-            "but you need to enable the `plugin.extras.lsp.none-ls` extra,",
+            "but you need to enable the `plugin.extra.lsp.none-ls` extra,",
             "for formatting to work correctly.",
             "",
             "In case you no longer want to use `none-ls.nvim`, just remove the spec from your config.",

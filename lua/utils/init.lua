@@ -58,7 +58,7 @@ end
 ---@param extra string
 function M.has_extra(extra)
     local Config = require("config.default")
-    local modname = "plugin.extras." .. extra
+    local modname = "plugin.extra." .. extra
     return vim.tbl_contains(require("lazy.core.config").spec.modules, modname)
         or vim.tbl_contains(Config.json.data.extras, modname)
 end
