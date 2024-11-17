@@ -21,8 +21,8 @@ function M.opts()
         on_config_done = nil,
         theme = "dropdown", ---@type telescope_themes
         defaults = {
-            prompt_prefix = gvimconf.icons.ui.Telescope .. " ",
-            selection_caret = gvimconf.icons.ui.Forward .. " ",
+            prompt_prefix = gvimconf.config.icons.ui.Telescope .. " ",
+            selection_caret = gvimconf.config.icons.ui.Forward .. " ",
             entry_prefix = "  ",
             initial_mode = "insert",
             selection_strategy = "reset",

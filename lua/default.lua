@@ -4,7 +4,6 @@ local M = {
     plugin = {
         list = {},
     },
-    icons = require("assets.icons"),
 }
 
 return M
