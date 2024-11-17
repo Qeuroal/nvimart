@@ -120,6 +120,12 @@ gvimconf.colorschemes = {
         background = "dark",
     },
     ["onedark"] = {
-        name = "onedark"
+        moduleName = "onedarkpro",
+        name = "onedark",
+        setup = {
+            highlights = {
+                Comment = { underline = true, extend = true }
+            }
+        },
     }
 }

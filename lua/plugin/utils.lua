@@ -176,14 +176,16 @@ M.colorscheme = function(colorscheme_name)
     end
 
     if type(colorscheme.setup) == "table" then
-        require(colorscheme.name).setup(colorscheme.setup)
+        local moduleName = colorscheme.moduleName or colorscheme.name
+        require(moduleName).setup(colorscheme.setup)
     elseif type(colorscheme.setup) == "function" then
         colorscheme.setup()
     end
     vim.cmd("colorscheme " .. colorscheme.name)
     vim.o.background = colorscheme.background
 
-    vim.api.nvim_set_hl(0, "Visual", { reverse = true })
+    -- 将块选中的背景颜色设置为相应字符选中前的前景色, 选中的字符前景色为黑
+    -- vim.api.nvim_set_hl(0, "Visual", { reverse = true })
 end
 
 -- Switch colorscheme
