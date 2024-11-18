@@ -6,6 +6,37 @@ local M = {}
 -- enabled with `:LazyExtras`
 vim.g.gvimconf_picker = "auto"
 
+-- LazyVim auto format
+vim.g.autoformat = false
+
+-- if the completion engine supports the AI source,
+-- use that instead of inline suggestions
+vim.g.ai_cmp = true
+
+-- LazyVim root dir detection
+-- Each entry can be:
+-- * the name of a detector function like `lsp` or `cwd`
+-- * a pattern or array of patterns like `.git` or `lua`.
+-- * a function with signature `function(buf) -> string|string[]`
+vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
+
+-- Optionally setup the terminal to use
+-- This sets `vim.o.shell` and does some additional configuration for:
+-- * pwsh
+-- * powershell
+-- LazyVim.terminal.setup("pwsh")
+
+-- Set LSP servers to be ignored when used with `util.root.detectors.lsp`
+-- for detecting the LSP root
+vim.g.root_lsp_ignore = { "copilot" }
+
+-- Hide deprecation warnings
+vim.g.deprecation_warnings = false
+
+-- Show the current document symbols location from Trouble in lualine
+-- You can disable this for a buffer by setting `vim.b.trouble_lualine = false`
+vim.g.trouble_lualine = true
+
 -- {{{> load default options
 M.loadBasicOptions = function()
     local options = {
@@ -23,7 +54,7 @@ M.loadBasicOptions = function()
         mouse = "",                 -- allow the mouse to be used in neovim
         guicursor = "a:block",      -- set block for any mode
         pumheight = 10,             -- pop up menu height
-        showmode = true,           -- we do not need to see things like "INSERT" anymore
+        showmode = false,           -- we do not need to see things like "INSERT" anymore
         smartcase = true,           -- smart case
         splitbelow = true,          -- force all horizontal splits to go below current window
         splitright = true,          -- force all vertical splits to go to the right of current window
