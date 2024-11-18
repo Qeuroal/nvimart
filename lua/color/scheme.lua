@@ -125,7 +125,11 @@ gvimconf.colorschemes = {
         setup = {
             highlights = {
                 Comment = { underline = true, extend = true },
-                Directory = { bold = true }
+                Directory = { bold = true },
+                ["CursorLine"] = {
+                    -- bg = "#31353f",  -- 正常的
+                    bg = "#3b3b49",
+                },
             },
             options = {
                 cursorline = true,
@@ -134,15 +138,4 @@ gvimconf.colorschemes = {
             }
         },
     },
-    ['onedark'] = {
-        moduleName = "onedark",
-        name = "onedark",
-        setup = {
-            -- Lualine options --
-            lualine = {
-                transparent = false, -- lualine center bar transparency
-            },
-        },
-    },
-
 }
