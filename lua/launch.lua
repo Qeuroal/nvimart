@@ -1,3 +1,6 @@
+_G.gvimconf.utils = require("utils")
+_G.gvimconf.config.setup({})
+
 local baseUtils = require("utils.basic")
 
 -- Load user configuration files

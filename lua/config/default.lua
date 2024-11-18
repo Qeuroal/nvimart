@@ -1,5 +1,7 @@
+---@class gvimconf.Config: VimOptions
 local M = {}
 
+M.version = "1.0" -- x-release-please-version
 local defaults = {
     -- colorscheme can be a string like `catppuccin` or a function that will load the colorscheme
     ---@type string|fun()
@@ -16,7 +18,7 @@ local defaults = {
     news = {
         -- When enabled, NEWS.md will be shown when changed.
         -- This only contains big new features and breaking changes.
-        gvimconf = true,
+        vimart = true,
         -- Same but for Neovim's news.txt
         neovim = false,
     },
@@ -63,7 +65,7 @@ local defaults = {
 
 M.json = {
     version = 7,
-    path = vim.g.vimart_json or vim.fn.stdpath("config") .. "/vimart.json",
+    path = vim.g.gvimconf_json or vim.fn.stdpath("config") .. "/gvimconf.json",
     data = {
         version = nil, ---@type string?
         news = {}, ---@type table<string, string>
@@ -100,7 +102,7 @@ function M.setup(opts)
         M.load("autocmds")
     end
 
-    local group = vim.api.nvim_create_augroup("Vimart", { clear = true })
+    local group = vim.api.nvim_create_augroup("gvimconf", { clear = true })
     vim.api.nvim_create_autocmd("User", {
         group = group,
         pattern = "VeryLazy",

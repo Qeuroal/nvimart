@@ -3,14 +3,14 @@ local LazyConfig = require("lazy.core.config")
 local Plugin = require("lazy.core.plugin")
 local Text = require("lazy.view.text")
 
----@class LazyExtraSource
+---@class ExtraSource
 ---@field name string
 ---@field desc? string
 ---@field module string
 
 ---@class LazyExtra
 ---@field name string
----@field source LazyExtraSource
+---@field source ExtraSource
 ---@field module string
 ---@field desc? string
 ---@field enabled boolean
@@ -26,13 +26,13 @@ local Text = require("lazy.view.text")
 local M = {}
 M.buf = 0
 
----@type LazyExtraSource[]
+---@type ExtraSource[]
 M.sources = {
-    { name = "Gvimconf", desc = "Gvimconf extras", module = "plugin.extra" },
+    { name = "gvimconf.utils", desc = "gvimconf.utils extras", module = "plugin.extra" },
     { name = "User", desc = "User extras", module = "plugins.extras" },
 }
 
-M.ns = vim.api.nvim_create_namespace("gvimconf.extra")
+M.ns = vim.api.nvim_create_namespace("utils.extras")
 ---@type string[]
 M.state = nil
 
@@ -81,7 +81,7 @@ function M.get()
 end
 
 ---@param modname string
----@param source LazyExtraSource
+---@param source ExtraSource
 function M.get_extra(source, modname)
     local enabled = vim.tbl_contains(M.state, modname)
     local spec = Plugin.Spec.new(nil, { optional = true, pkg = false })
@@ -140,7 +140,7 @@ local X = {}
 function X.new()
     local self = setmetatable({}, { __index = X })
     M.buf = vim.api.nvim_get_current_buf()
-    self.float = Float.new({ title = "Gvimconf Extra" })
+    self.float = Float.new({ title = "gvimconf.utils Extras" })
     self.float:on_key("x", function()
         self:toggle()
     end, "Toggle extra")
@@ -219,9 +219,9 @@ function X:update()
 end
 
 function X:render()
-    self.text:nl():nl():append("Gvimconf Extra", "LazyH1"):nl():nl()
+    self.text:nl():nl():append("gvimconf.utils Extras", "LazyH1"):nl():nl()
     self.text
-        :append("This is a list of all enabled/disabled Gvimconf extra.", "LazyComment")
+        :append("This is a list of all enabled/disabled gvimconf.utils extras.", "LazyComment")
         :nl()
         :append("Each extra shows the required and optional plugins it may install.", "LazyComment")
         :nl()
@@ -285,11 +285,11 @@ function X:extra(extra)
     if extra.recommended then
         self.text:append(" "):append(LazyConfig.options.ui.icons.favorite or " ", "LazyCommit")
     end
-    if extra.source.name ~= "Gvimconf" then
+    if extra.source.name ~= "gvimconf.utils" then
         self.text:append(" "):append(LazyConfig.options.ui.icons.event .. extra.source.name, "LazyReasonEvent")
     end
     for _, import in ipairs(extra.imports) do
-        import = import:gsub("^gvimconf.utils.plugins.extras.", "")
+        import = import:gsub("^plugin.extra.", "")
         self.text:append(" "):append(LazyConfig.options.ui.icons.plugin .. import, "LazyReasonStart")
     end
     for _, plugin in ipairs(extra.plugins) do

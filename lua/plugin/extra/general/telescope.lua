@@ -143,7 +143,7 @@ return {
                 "<leader>ss",
                 function()
                     require("telescope.builtin").lsp_document_symbols({
-                        symbols = gvimconf.utils.config.get_kind_filter(),
+                        symbols = gvimconf.config.get_kind_filter(),
                     })
                 end,
                 desc = "Goto Symbol",
@@ -152,7 +152,7 @@ return {
                 "<leader>sS",
                 function()
                     require("telescope.builtin").lsp_dynamic_workspace_symbols({
-                        symbols = gvimconf.utils.config.get_kind_filter(),
+                        symbols = gvimconf.config.get_kind_filter(),
                     })
                 end,
                 desc = "Goto Symbol (Workspace)",
