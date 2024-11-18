@@ -119,13 +119,30 @@ gvimconf.colorschemes = {
         },
         background = "dark",
     },
-    ["onedark"] = {
+    ["onedarkpro"] = {
         moduleName = "onedarkpro",
         name = "onedark",
         setup = {
             highlights = {
-                Comment = { underline = true, extend = true }
+                Comment = { underline = true, extend = true },
+                Directory = { bold = true }
+            },
+            options = {
+                cursorline = true,
+                transparency = false,
+                highlight_inactive_windows = true,
             }
         },
-    }
+    },
+    ['onedark'] = {
+        moduleName = "onedark",
+        name = "onedark",
+        setup = {
+            -- Lualine options --
+            lualine = {
+                transparent = false, -- lualine center bar transparency
+            },
+        },
+    },
+
 }
