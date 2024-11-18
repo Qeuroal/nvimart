@@ -1,3 +1,5 @@
+_G.gvimconf.utils = require("utils")
+_G.gvimconf.config.setup({})
 local baseUtils = require("utils.basic")
 
 -- Load user configuration files
@@ -40,7 +42,7 @@ if not baseUtils.noplugin then
             colorscheme_cache_file:close()
             gvimconf.colorscheme = colorscheme
         else
-            gvimconf.colorscheme = "onedark"
+            gvimconf.colorscheme = "onedarkpro"
         end
     end
 

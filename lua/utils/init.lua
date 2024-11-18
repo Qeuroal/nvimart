@@ -106,7 +106,7 @@ end
 
 function M.deprecate(old, new)
     M.warn(("`%s` is deprecated. Please use `%s` instead"):format(old, new), {
-        title = "NVIMART",
+        title = "gvimconf.utils",
         once = true,
         stacktrace = true,
         stacklevel = 6,
@@ -245,7 +245,7 @@ end
 for _, level in ipairs({ "info", "warn", "error" }) do
     M[level] = function(msg, opts)
         opts = opts or {}
-        opts.title = opts.title or "VIMART"
+        opts.title = opts.title or "NVIMART"
         return LazyUtil[level](msg, opts)
     end
 end

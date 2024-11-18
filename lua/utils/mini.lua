@@ -1,4 +1,4 @@
-
+---@class utils.mini
 local M = {}
 
 ---@alias Mini.ai.loc {line:number, col:number}

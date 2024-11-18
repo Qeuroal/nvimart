@@ -145,7 +145,7 @@ function M.info()
     lines[#lines + 1] = "```lua"
     lines[#lines + 1] = "vim.g.root_spec = " .. vim.inspect(spec)
     lines[#lines + 1] = "```"
-    gvimconf.utils.info(lines, { title = "VIMART Roots" })
+    gvimconf.utils.info(lines, { title = "gvimconf.utils Roots" })
     return roots[1] and roots[1].paths[1] or vim.uv.cwd()
 end
 
@@ -161,7 +161,7 @@ function M.setup()
     -- probably because the event is triggered in the neo-tree buffer, therefore add `BufEnter`
     -- Maybe this is too frequent on `BufEnter` and something else should be done instead??
     vim.api.nvim_create_autocmd({ "LspAttach", "BufWritePost", "DirChanged", "BufEnter" }, {
-        group = vim.api.nvim_create_augroup("vimart_root_cache", { clear = true }),
+        group = vim.api.nvim_create_augroup("gvimconf_utils_root_cache", { clear = true }),
         callback = function(event)
             M.cache[event.buf] = nil
         end,
