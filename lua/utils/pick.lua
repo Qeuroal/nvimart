@@ -46,7 +46,7 @@ end
 function M.want()
     vim.g.gvimconf_picker = vim.g.gvimconf_picker or "auto"
     if vim.g.gvimconf_picker == "auto" then
-        return gvimconf.utils.has_extra("fzf") and "fzf" or "telescope"
+        return gvimconf.utils.has_extra("general.fzf") and "fzf" or "telescope"
     end
     return vim.g.gvimconf_picker
 end

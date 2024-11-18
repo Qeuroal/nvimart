@@ -370,13 +370,13 @@ return {
     -- },
 
     {
-        import = "plugin.extra.fzf",
+        import = "plugin.extra.general.fzf",
         enabled = function()
             return gvimconf.utils.pick.want() == "fzf"
         end,
     },
     {
-        import = "plugin.extra.telescope",
+        import = "plugin.extra.general.telescope",
         enabled = function()
             return gvimconf.utils.pick.want() == "telescope"
         end,
